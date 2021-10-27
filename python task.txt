@@ -1,0 +1,88 @@
+1.Create a program to compare three numbers and find the bigger numbers. [topics covered: identified, variable, types, operator, if statement]
+a=int(input("enter your first number:"))
+b=int(input("enter your second number:"))
+c=int(input("enter your third number:"))
+if(a>b) and (a>c):
+    bigger=a
+elif (b>a) and (b>c):
+    bigger=b
+else:
+    bigger=c
+print("the bigger number is",bigger) 
+=======================================================================================================================================================================
+3.Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
+name=input("enter your name:")
+age=int(input("enter your age:"))
+num=(100-age)
+b=num
+print("hi ",name," your 100 years will turn in the year ",b+2021)
+=========================================================================================================================================================================
+2.Write the above solution in a functionwhichtakes take numbers and return the bigger number [topic covered: function]
+def bigger():
+    if(a>b):
+        if(a>c):
+             largest=a
+        else:
+             largest=c
+    else:
+        if b>c:
+            largest=b
+    
+        else:
+            largest=c
+            
+        print("big number is: ",largest)
+        
+
+    
+a=int(input())
+b=int(input())
+c=int(input())
+bigger();
+
+=====================================================================================================================================================================
+6.Make a two-player Rock-Paper-Scissors game. (Hint: Ask for player plays (using input), compare them, print out a message of congratulations to the winner, 
+and ask if the players want to start a new game)Remember the rules:Rock beats scissorsScissors beats paperPaper beats rock
+print('welcome to Rock-paper-scissor Game')
+start=('y')
+while start not in('n','No','no','N'):
+    print('please press 1 for to start the game')
+    option=int(input('enter a value :'))
+    if option==1:
+        player1=input('enter player1 :')
+        player2=input("enter player2:")
+        if player1==player2:
+            print("Both players selected same It's a tie!")
+        elif player1 == "rock":
+            if player2 == "scissors":
+                print(" Rock smashes scissors! you win!")
+            else:
+                print("Paper covers rock! you lose.")
+        elif player1 == "paper":
+            if player2 == "rock":
+                print("Paper covers rock! you win!")
+            else:
+                print("Scissors cuts paper! you lose.")
+        elif player1 == "scissors":
+            if player2 == "paper":
+                print("Scissors cuts paper! you win!")
+            else:
+                print("Rock smashes scissors! you lose.")
+        start=input('would you play game again   :')
+        if start in ('n','No','no','N'):
+            print('thank you')
+            break
+========================================================================================================================================================================
+3.Create a program that asks the user to enter their name and their age. Print out a message addressed to them that tells them the year that they will turn 100 years old.
+def function():
+    num=100-age
+    b=num
+    print("hi",name,"your 100 years will turn in the year",b+2021)
+        
+
+    
+name=input("enter your name:")
+age=int(input("enter your age:"))
+
+function();
+=========================================================================================================================================================================
