@@ -86,3 +86,39 @@ age=int(input("enter your age:"))
 
 function();
 =========================================================================================================================================================================
+def function():
+    
+    
+    start=('y')
+    while start not in('n','No','no','N'):
+        
+        
+        if option==1:
+        
+            if player1==player2:
+                print("Both players selected same It's a tie!")
+            elif player1 == "rock":
+                if player2 == "scissors":
+                    print(" Rock smashes scissors! you win!")
+                else:
+                    print("Paper covers rock! you lose.")
+            elif player1 == "paper":
+                if player2 == "rock":
+                    print("Paper covers rock! you win!")
+                else:
+                    print("Scissors cuts paper! you lose.")
+            elif player1 == "scissors":
+                if player2 == "paper":
+                    print("Scissors cuts paper! you win!")
+                else:
+                    print("Rock smashes scissors! you lose.")
+            start=input('would you play game again   :')
+            if start in ('n','No','no','N'):
+                print('thank you')
+                break
+print('welcome to Rock-paper-scissor Game')
+print('please press 1 for to start the game')
+option=int(input('enter a value :'))                
+player1=input('enter player1 :')
+player2=input("enter player2:")
+function()
