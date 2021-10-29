@@ -1,0 +1,39 @@
+def bigger(*nos):
+    a=nos[0]
+    for i in nos:
+        if i>a:
+            a=i
+    return a
+print(bigger(12,23,45))
+==========================================================================================
+filename==>hello.py
+import python
+r=python.bigger(12,34,67)
+print(r)
+
+file name=python.py
+def bigger(*nos):
+    a=nos[0]
+    for i in nos:
+        if i>a:
+            a=i
+    return a
+print(bigger(12,23,45))
+===========================================================================================
+filename==>login.py
+from service.validate_user import  validateUser
+u=validateUser("sushma","sushma123")
+print(u)
+
+filename==>valiadate_user.py
+def validateUser(user,password):
+    if(user == 'sushma'):
+        return True
+    else:
+        return False
+
+filename==>__init__.py
+print('hello')
+============================================================================================
+    
+    
