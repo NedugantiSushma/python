@@ -1,0 +1,39 @@
+taskdao.py
+from dbconnections import getdbconnection
+def create_task(task):
+    mydb=getdbconnection()
+    mycursor=mydb.cursor()
+    sql="insert into task(tname,tdesc,tstatus,tpriority,tnotes,tbm,townid,tcrid,crton,modon)VALUES (%s, %s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    val=(task.taskname,task.tdesc,task.tstatus,task.tprority,task.tnotes,task.tbm,task.townid,task.tcrid,task.crton,task.modon)
+    mycursor.execute(sql,val)
+    mydb.commit()
+    mydb.close()
+
+===================================================================================================================================
+import mysql.connector
+def getdbconnection():
+    mydb = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="Sonata@123",
+        database="casestudy"
+    )
+    return mydb
+===============================================================
+from dao.taskdao import create_task
+from servicepackages.task import *
+t=Task("Create table","Create a table for task")
+create_task(t)
+===============================================================
+def __init__(self,taskid,taskname,tdesc,tstatus,tpriority,tnotes,tbm,townid,tcrid,crton,modon):
+    self.taskid=taskid
+    self.taskname = taskname
+    self.tdesc = tdesc
+    self.tstatus = tstatus
+    self.tpriority = tpriority
+    self.tnotes = tnotes
+    self.tbm = tbm
+    self.townid = townid
+    self.tcrid = tcrid
+    self.crton = crton
+    self.modon = modon
