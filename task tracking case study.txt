@@ -1,0 +1,121 @@
+import mysql.connector as db
+con=db.connect(host='localhost',user="root",password="Sonata@123")
+cur=con.cursor()
+
+def createdb():
+    s="CREATE DATABASE  tasktrackingsystem"
+    cur.execute(s)
+    cur.close()
+    con.close()
+    print("Date base is cretaed successfully.....")
+def createtable():
+    con=db.connect(host="localhost",user="root",password="Sonata@123",database="casestudy")
+    cur=con.cursor()
+    s="CREATE TABLE task_track (taskid int,taskname varchar(20),descr varchar(20),status varchar(20),prior int,notes varchar(20),bookmark varchar(20),ownerid int,creatorid int,createdon int,modifidein int)"
+    cur.execute(s)
+    cur.close()
+    con.close()
+    print("Table created succesfully.....")
+def insertrec():
+    con = db.connect(host="localhost", user="root", password="Sonata@123", database="casestudy")
+    cur = con.cursor()
+    s = "insert into task_track values (1004,'java','diffcult syntax','completed',1, 'available' ,'link',4351,4351,2012,2014)"
+    cur.execute(s)
+    s="insert into task_track values (1005,'#c sharp',' hard','completed',2, 'available','link',4256,4256,2016,2019)"
+    cur.execute(s)
+    s = "insert into task_track values (1006,'html','simple syntax','completed',3, 'available' ,'link',4359,4359,2017,2018)"
+    cur.execute(s)
+    s = "insert into task_track values (1007,'CSS','easy syntax','completed',2, 'available' ,'link',4354,4354,2016,2020)"
+    cur.execute(s)
+    con.commit()
+    cur.close()
+    con.close()
+    print("Records inserted successfully........")
+
+def updaterec():
+    con=db.connect(host='localhost',user="root",password="Sonata@123",database="casestudy")
+    cur=con.cursor()
+    s="update task_track set notes='not available' where  taskid=1004 "
+    cur.execute(s)
+    con.commit()
+    cur.close()
+    con.close()
+    print("Record updated successfully.........")
+
+def deleterec():
+    con = db.connect(host='localhost', user="root", password="Sonata@123", database="casestudy")
+    cur = con.cursor()
+    s="delete from task_track where taskid=1002"
+    cur.execute(s)
+    con.commit()
+    cur.close()
+    con.close()
+    print("Delete updated successfully.........")
+def displayrec():
+    con = db.connect(host='localhost', user="root", password="Sonata@123", database="casestudy")
+    cur = con.cursor()
+    s="select * from task_track"
+    cur.execute(s)
+    data=cur.fetchall()
+    print(cur.rowcount)
+    col=[i[0] for  i in cur.description]
+    for i in col:
+        print(i,end=" ")
+    print("\n----------------------------")
+    for i in data:
+        for j in i:
+            print(j,end=" ")
+        print()
+
+    cur.close()
+    con.close()
+    print(data)
+
+def searchrec(s):
+    con = db.connect(host='localhost', user="root", password="Sonata@123", database="casestudy")
+    cur = con.cursor()
+    s = "select * from task_track where taskid='"+ str(s)+"'"
+    cur.execute(s)
+    data = cur.fetchall()
+    if data:
+        print(data)
+    else:
+        print("No such record found")
+    cur.close()
+    con.close()
+
+
+
+
+
+
+while True:
+    print("1) Create Datebase")
+    print("2) Create Table")
+    print("3) Insert Record")
+    print("4) Update Record")
+    print("5) Delete Record")
+    print("6) Display Record")
+    print("7) Search Record")
+
+    print("9) Exit")
+    ch=int(input("enter your choice:"))
+    if (ch==1):
+        createdb()
+    elif (ch==2):
+        createtable()
+    elif (ch==3):
+        insertrec()
+    elif (ch==4):
+        updaterec()
+    elif (ch==5):
+        deleterec()
+    elif (ch==6):
+        displayrec()
+    elif (ch==7):
+        s=int(input("enter task id to search:"))
+
+        searchrec(s)
+    else:
+        break
+
